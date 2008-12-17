@@ -364,8 +364,8 @@ describe Merb::Cache::CacheMixin do
       Merb::Controller.build_request({}).class.should == Merb::Cache::CacheRequest
     end
 
-    it "should use nil if the path is not supplied" do
-      Merb::Controller.build_request({}).path.should be_nil
+    it "should use '/' if the path is not supplied" do
+      Merb::Controller.build_request({}).path.should == "/"
     end
 
     it "should allow the params to be specified" do
