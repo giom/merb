@@ -10,11 +10,8 @@ module Merb::Cache::CacheMixin
     end
 
     def cache(*actions)
-      if actions.last.is_a? Hash
-        cache_action(*actions)
-      else
-        actions.each {|a| cache_action(*a)}
-      end
+      options = extract_options_from_args!(actions) || {}
+      actions.each {|a| cache_action(a, options)}
     end
 
     def cache_action(action, conditions = {})

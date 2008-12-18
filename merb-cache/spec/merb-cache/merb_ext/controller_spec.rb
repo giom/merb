@@ -33,7 +33,7 @@ describe Merb::Cache::CacheMixin do
         actions = [:first, :second, :third]
 
         actions.each do |action|
-          self.should_receive(:cache_action).with(action)
+          self.should_receive(:cache_action).with(action, {})
         end
 
         cache *actions
