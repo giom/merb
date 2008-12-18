@@ -369,7 +369,8 @@ module Merb
                 script_file = "#{script_dir}/.rdebugrc"
                 Debugger.run_script script_file, StringIO.new if File.exists?(script_file)
               end
-
+              Merb::Controller.overridable(:dbg_print)
+              
               if Debugger.respond_to?(:settings)
                 Debugger.settings[:autoeval] = true
               end
